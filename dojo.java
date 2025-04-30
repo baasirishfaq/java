@@ -1,36 +1,43 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class dojo {
-
     public static void main(String[] args) {
-        String password = "Java234";
-        int attempts = 3;
-        Scanner pass = new Scanner(System.in);
+        Random rand = new Random();
+        int number = rand.nextInt(50) + 1;
 
-        for (int i = 0; i < attempts; i++) {
-            System.out.print("Enter your password: ");
-            String input = pass.nextLine();
+        // System.out.println("The number is " + number);
 
-            if (input.equals(password))
-            /*
-             * if(input == password does not work here) it can only work for char or int
-             * because it compares the memory address of the string here we are using a mixture of
-             * chars and ints in a string
-             * so we use equals method to compare the string values
-             * if(input.equal(passowrd)) is to be used here...
-             */
+        System.out.print("enter your guess: ");
+        Scanner input = new Scanner(System.in);
+        int guess = input.nextInt();
 
-            {
-                System.out.println("Welcome!");
+        int attempts = 1;
+        int allowed = 7;
+
+        while (guess != number) {
+            if (attempts == allowed) {
+                System.out.println("you have reached the maximum number of attempts you lose");
                 break;
-            } else {
-                System.out.println("incorrect password : ");
-                System.out.println("you have " + (attempts - (i + 1)) + " tries left");
             }
-            if (i == 2) {
-                System.out.println("You have been locked out.");
+            if (Math.abs(guess - number) <= 5) {
+                System.out.println("you are very close");
+            } else if (Math.abs(guess - number) <= 10) {
+                System.out.println("You're close but not close enough");
+            } else if (Math.abs(guess - number) <= 20) {
+                System.out.println("getting closer");
+            } else if (guess > number) {
+                System.out.println("too high not even close");
+            } else if (guess < number) {
+                System.out.println("too low not even close");
             }
+            System.out.print("try again: ");
+            guess = input.nextInt();
+            attempts++;
         }
-        pass.close();
+        if (guess == number) {
+            System.out.println("correct! it took you " + attempts + " attempts");
+        }
+        input.close();
     }
 }
