@@ -3,14 +3,24 @@ import java.util.Scanner;
 public class dojo {
 
     public static void main(String[] args) {
-        int password = 1234;
+        String password = "Java234";
         int attempts = 3;
         Scanner pass = new Scanner(System.in);
 
         for (int i = 0; i < attempts; i++) {
             System.out.print("Enter your password: ");
-            int input = pass.nextInt();
-            if (input == password) {
+            String input = pass.nextLine();
+
+            if (input.equals(password))
+            /*
+             * if(input == password does not work here) it can only work for char or int
+             * because it compares the memory address of the string here we are using a mixture of
+             * chars and ints in a string
+             * so we use equals method to compare the string values
+             * if(input.equal(passowrd)) is to be used here...
+             */
+
+            {
                 System.out.println("Welcome!");
                 break;
             } else {
