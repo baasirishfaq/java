@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class HelloUser {
     public static void main(String[] args) {
+        
         Scanner nameMeAnything = new Scanner(System.in); // to declare that i am seeking keyboard input from the user
 
         System.out.print("enter your name: ");
