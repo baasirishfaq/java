@@ -1,39 +1,35 @@
 import java.util.Scanner;
 
 public class HelloUser {
-
     public static void main(String[] args) {
-        String[] names = new String[2];
-        int[][] grades = new int[2][2];
-
         Scanner input = new Scanner(System.in);
-        Scanner marks = new Scanner(System.in);
-        // for entering studnet names
+        int[][] arr = new int[2][2];
+        String[] names = new String[2];
+        double avg = 0, sum = 0;
+
         for (int i = 0; i < 2; i++) {
-
-            System.out.print("Enter the name of student " + (i + 1) + " : ");
+            System.out.print("Enter the name of the student " + (i + 1) + ": ");
             names[i] = input.nextLine();
-
-            for(int j = 0; j<2; j++)
-            {
-                System.out.print("MARKS OF SUBJECT " + (j + 1) + " : ");
-                grades[i][j] = marks.nextInt();
-                marks.nextLine(); // Consume the newline character left by nextInt()
+            for (int j = 0; j < 2; j++) {
+                System.out.print("Enter the marks of subject " + (j + 1) + ": ");
+                arr[i][j] = input.nextInt();
             }
+            input.nextLine(); // Consume the newline character left by nextInt()
         }
-
-        for(int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++) 
         {
-            double avg = (grades[i][0] + grades[i][1]) / 2.0;   
-            System.out.println("The average of names " + names[i] + " is: " + avg );
-            if(avg >= 50)
-            {
-                System.out.println("The student " + names[i] + " has passed.");
+            System.out.println("The name of the student is " + names[i] + "\n");
+            for (int j = 0; j < 2; j++) {
+                System.out.println("The marks of subject " + (j + 1) + " : " + arr[i][j] + "\n");
+                sum = sum + arr[i][j];
             }
-            else
-            {
-                System.out.println("The student " + names[i] + " has failed.");
+            avg = sum / 2.0;
+            if (avg >= 50) {
+                System.out.println("The student " + names[i] + " has passed with avg: " + avg + "\n");
+            } else {
+                System.out.println("The student " + names[i] + " has failed with avg: " + avg + "\n");
             }
+            sum = 0; // Reset sum for the next student
         }
     }
 }
