@@ -7,6 +7,8 @@ public class HelloUser {
         String[] names = new String[2];
         double avg = 0, sum = 0;
 
+
+        // get the names and marks of the students
         for (int i = 0; i < 2; i++) {
             System.out.print("Enter the name of the student " + (i + 1) + ": ");
             names[i] = input.nextLine();
@@ -16,6 +18,8 @@ public class HelloUser {
             }
             input.nextLine(); // Consume the newline character left by nextInt()
         }
+
+        //spit out the names and marks
         for (int i = 0; i < 2; i++) 
         {
             System.out.println("The name of the student is " + names[i] + "\n");
@@ -31,5 +35,6 @@ public class HelloUser {
             }
             sum = 0; // Reset sum for the next student
         }
+        input.close();
     }
 }

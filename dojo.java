@@ -1,45 +1,21 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class dojo {
+
     public static void main(String[] args) {
-        Random rand = new Random();
-        int number = rand.nextInt(50) + 1;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("================================");
 
-        // System.out.println("The number is " + number);
+        for (int i = 0; i < 3; i++) {
+            String language = sc.next(); // e.g. "java"
+            int score = sc.nextInt();    // e.g. 100
 
-        System.out.print("enter your guess: ");
-        Scanner input = new Scanner(System.in);
-        int guess = input.nextInt();
-
-        int attempts = 1;
-        int allowed = 7;
-
-        while (guess != number) {
-            if (attempts == allowed) {
-                System.out.println("you have reached the maximum number of attempts you lose" +" the number was "+ number);
-                break;
-            }
-            if (Math.abs(guess - number) <= 2) {
-                System.out.println("Almost there");
-            } else if (Math.abs(number - guess) <= 5) {
-                System.out.println("Even closer");
-            } else if (Math.abs(guess - number) <= 10) {
-                System.out.println("You're close but not close enough");
-            } else if (Math.abs(guess - number) <= 20) {
-                System.out.println("getting closer");
-            } else if (guess > number) {
-                System.out.println("too high ");
-            } else if (guess < number) {
-                System.out.println("too low ");
-            }
-            System.out.print("try again: ");
-            guess = input.nextInt();
-            attempts++;
+            // Format string: %-15s means left-align string in 15 characters
+            // %03d means pad the number with leading 0s to make 3 digits
+            System.out.printf("%-15s%03d%n", language, score);
         }
-        if (guess == number) {
-            System.out.println("correct! it took you " + attempts + " attempts " + "the number was "+ number);
-        }
-        input.close();
+
+        System.out.println("================================");
+        sc.close();
     }
 }
