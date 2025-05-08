@@ -1,19 +1,20 @@
 import java.io.*;
 import java.util.*;
 
-public class dojo {
+public class Solution {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int lineNumber = 1;
         
-        // Loop through input until EOF
-        while (input.hasNextLine()) {
-            String s = input.nextLine();
-            System.out.println(lineNumber + " " + s);
-            lineNumber++;
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        
+        String reversedStr = "";
+
+        for (int i = 0; i < A.length(); i++) 
+        {
+            reversedStr = A.charAt(i) + reversedStr;
         }
-        
-        input.close();
+        System.out.println(reversedStr.equals(A) ? "Yes" : "No");
+        sc.close();
     }
 }
