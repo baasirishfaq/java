@@ -18,6 +18,7 @@ public class Solution {
             }
         }
         
+        
         return smallest + "\n" + largest;
     }
 
