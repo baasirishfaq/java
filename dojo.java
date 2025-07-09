@@ -5,6 +5,8 @@ public class Solution {
         String smallest = s.substring(0, k);
         String largest = s.substring(0, k);
         String compare;
+
+        
         
         for (int i = 0; i <= s.length() - k; i++) {  
             
