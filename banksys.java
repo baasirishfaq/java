@@ -6,6 +6,7 @@ public class banksys {
         int balance = 100;
         Scanner input = new Scanner(System.in);
 
+        // Prompt for password
         System.out.print("Enter your password (or enter 4 to exit): ");
         int userPassword = input.nextInt();
 
